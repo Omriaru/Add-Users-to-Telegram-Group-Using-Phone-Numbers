@@ -1,0 +1,76 @@
+How to Use the Script: "Add Users to Telegram Group Using Phone Numbers"
+Prerequisites:
+Install Telethon: If you haven’t already, you need to install the Telethon library to interact with Telegram’s API.
+
+Run the following command to install it via pip:
+
+bash
+Copy code
+pip install telethon
+Telegram API Credentials:
+
+You must have a Telegram API ID and API Hash to authenticate and use the script.
+You can obtain these by registering for an application on Telegram’s Developer Portal.
+Telegram Group Permissions:
+
+You must be an admin of the Telegram group you want to add users to.
+Ensure you have permission to add users to the group.
+Phone Numbers File:
+
+Create a text file called phone_numbers.txt and list the phone numbers (in international format) of the users you want to add to the group. Each phone number should be on a new line.
+Example content for phone_numbers.txt:
+diff
+Copy code
++1234567890
++1987654321
++1122334455
+Steps to Use the Script:
+Prepare the Script:
+
+Download the Python script or copy the script into a .py file (e.g., add_users_to_group_by_phone.py).
+Ensure that your script is in the same directory as the phone_numbers.txt file or provide the correct path to the file in the script.
+Edit the Script:
+
+Open the script in a text editor and replace the placeholders with your actual API ID, API Hash, and Group ID:
+python
+Copy code
+api_id = 'YOUR_API_ID'  # Your API ID
+api_hash = 'YOUR_API_HASH'  # Your API Hash
+group_id = 'YOUR_GROUP_ID'  # Your group ID (can be fetched by username or chat ID)
+Group ID: You can find your group ID by using the group's username or its chat ID.
+Run the Script:
+
+Open a terminal or command prompt.
+Navigate to the directory where your script is saved and run:
+bash
+Copy code
+python add_users_to_group_by_phone.py
+Script Execution:
+
+The script will:
+Read the list of phone numbers from phone_numbers.txt.
+Add each phone number as a contact on your Telegram account.
+Retrieve the user’s ID and attempt to add them to the specified Telegram group.
+You will see success messages in the terminal for each user added to the group. If there are any errors (e.g., invalid phone numbers, privacy restrictions), they will be printed as failure messages.
+Notes:
+Rate Limits: Telegram enforces rate limits to prevent spammy behavior. If you try adding too many users at once, you might get temporarily restricted. Add users in batches with breaks between them to avoid hitting these limits.
+
+Phone Number Privacy: Some users may have privacy settings that prevent others from adding them to groups or adding them as contacts. If a user is unreachable, an error will be printed in the console.
+
+Group Permissions: Ensure that you have the necessary permissions to add users to the group. If you're not an admin, the script won't work.
+
+Example Output:
+If everything works successfully, the terminal will display something like this:
+
+vbnet
+Copy code
+Successfully added +1234567890 to the group!
+Successfully added +1987654321 to the group!
+Successfully added +1122334455 to the group!
+If there is an issue, such as a privacy restriction, you will see:
+
+vbnet
+Copy code
+Failed to add +1234567890: User's privacy settings prevent adding to group.
+Conclusion:
+This script allows you to automate adding users to your Telegram group using phone numbers. By maintaining the phone numbers in a simple text file, you can efficiently add multiple users to a group without manually entering their usernames.
